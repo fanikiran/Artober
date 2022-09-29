@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+	<head>
+	<meta charset="UTF-8">
+	<title>Artober - DashBoard</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="style.css">
+	</head>
+
+	<body>
+		<h1 style="text-align: center">Artober - Dashboard</h1>
+		<div class="container">
+		</div>
+			
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script type="text/javascript" src="https://cdn.tutorialjinni.com/tabletop.js/1.6.2/tabletop.js"></script>
+		<script>
+			function init(){
+				Tabletop.init({key:'https://docs.google.com/spreadsheets/d/1miI3IZwV4kEWGXeleQtEY3wFULvSIExyHjpiVkCYraU/edit#gid=1904077224',
+							  callback:showInfo,
+							  simplesheet:true
+							  })
+			}
+			function showInfo(data,Tabletop){
+				for(var i=0; i<data.length;i++){
+					$(".container").append(
+					'div' + '<img scr="'+ data[i].ImageLink +'">' +
+					'<h1>' + data[i].Name + '</h1>' + 
+						'<p>' + data[i].Day + '</p>' +
+						'</div>'
+					);
+				}
+			}
+			window.addEventListener('DOMContentLoaded', init);
+		</script>
+	</body>
+</html>
